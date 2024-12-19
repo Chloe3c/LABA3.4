@@ -1,34 +1,23 @@
-﻿using System;
+double startX = -5;
+double endX = 10;
+double step = 0.2;
 
-class Program
+for (double x = startX; x <= endX; x += step)
 {
-    static void Main()
-    {
-        double startX = -5;
-        double endX = 10;
-        double step = 0.2;
+    double y;
 
-        for (double x = startX; x <= endX; x += step)
-        {
-            double y = CalculateFunction(x);
-            Console.WriteLine($"x: {x:F1}, y: {y:F4}");
-        }
+    if (x > 12.5)
+    {
+        y = Math.Pow(x, 2) + 2.5;
+    }
+    else if (x >= 0 && x <= 12.5)
+    {
+        y = Math.Exp(x - Math.Sin(x)) + Math.Cos(0.001 * x);
+    }
+    else 
+    {
+        y = 1 - Math.Pow(x, 2);
     }
 
-    static double CalculateFunction(double x)
-    {
-        if (x > 12.5)
-        {
-            return Math.Pow(x, 2) + 2.5;
-        }
-        else if (x >= 0 && x <= 12.5)
-        {
-            return Math.Exp(x - Math.Sin(x)) + Math.Cos(0.001 * x);
-        }
-        else // x < 0
-        {
-            return 1 - Math.Pow(x, 2);
-        }
-    }
+    Console.WriteLine($"x: {x:F1}, y: {y:F4}");
 }
-
